@@ -1,0 +1,322 @@
+CLOUD Concepts AZURE / AWS / GCP....
+
+============================================================================================================
+What are the services that you worked on CLOUD ?
+----> I have 4 years exp -- 3 years in azure and 1 year in aws
+
+In my project i worked with many services in cloud like 
+
+Identity and goverance, Compute, Networking, Keyvaults, DevOps servives, Containers, Databases, Storage Accounts.
+
+Resource groups--Rbac adding user and groups, assigning custom privilage, 
+vm, and vnet, assiging the nsg rules for secure connection 
+vmss, app services , ADF, storage accounts, storage account, key-vault.
+=====================================================================================================================
+
+Goverance, Resouce Goups, VM, VNET, NSG, VMSS, App Service, Funtion APPS, Azure Devops, Keyvault, Databases, Storage Accounts.
+
+--------------------------------------------------------------------------------------
+Coming to Identity and goverance ---> who can login , what can they access and all curd operations.
+By Azure Entra ID --> awe can authenticate and add the users and add users to group -- and we can give custom rules and policies ---> 
+by RBAC- role based access controlled. --- Reader, contributer, owner, and custom roles
+
+In aws ---> ROOT user and IAM- users, groups, roles, policies -- with least privilleages to contol access..
+--------------------------------------------------------------------------------------
+Azure ---> Azure Directory --- > RBAC ---> Roles ---> owner, contributor,reader and custom roles ----> dev, qa, devops , other services
+                                  users, groups ----created and assign the roles
+
+AWS ---> Root & IAM user ---> root user can create iam users ---> users, groups, Policies, Roles ---> custom policies to dev, qa, devops
+                                iamfullaccess, ec2fullaccess, s3fullacess, adminstrator , custompolicies , role-- ec2-->to use other service
+---------------------------------------------------------------------------------------
+
+==============================================================================================================
+Subscriptions--> to control billing and limits of services
+==============================================================================================================
+Resource Group --> a logical container to organize the resources in cloud. like DEV, UAT, STG, PRD environments seperatly.
+==============================================================================================================
+
+Coming to Compute ---> Virtual Machines (VM)---> its like a server to run the applications --like monolithic applications.
+
+VM / EC2/ Compute engine
+===============================================================================================================
+
+And i have idea on regions and availability on cloud we have 
+availability zone -- date center   --zone 1 , 2,  3 
+availability set --- use for vm maiantaince for availability -- server and patching by using fault domain -- 1st floor and secound floor and update domain--> update with no downtime 
+
+
+Azure storage redundancy ---LRS --> 1 data center(AZ-1) lo 3 copies -- less cost but data is not available 
+                            ZRS --> 3 data centers(AZ-1,2,3) lo each copy untundi if any data center fail iana no issues btw region
+                            GRS --> region lo 1 data center lo each 3 copies like LRS + other region lo 1 data center lo 3 copies in 1 data center to DR
+                            GZRS --> for high availablity ---> 1st region lo 3 data center lo 1 1 1 copy  + 2nd region lo 1 data center lo 3 copies 
+
+
+Azure Storage Redundancy is used to protect data against failures. 
+LRS stores 3 copies within the same datacenter and is the cheapest option. 
+ZRS stores data across 3 availability zones within the same region, protecting against zone failures. 
+GRS replicates data to a secondary Azure region, providing disaster recovery against regional outages. 
+GZRS combines ZRS in the primary region with geo-replication to a secondary region, offering the highest level of durability and availability. 
+For production critical applications, GZRS is generally preferred, while LRS is suitable for development and testing environments.
+
+
+====================================================================================================================================================
+
+Next is Networking ---> it is the heart of the cloud to make application securly connected.
+
+VNET ---> virtual network ---> How can you secure you connect to the application ?
+VNET -- large network --- Subnets-- division --> NAT -- it will allow ip address to communicate --> NIC-- network interface card ---> 
+VNET / VPC ---> for private network ---> by selecting CIDR range --> public and private subenets---> for public attaching Internet gateway ---route table -- and routes
+                                                  NAT -- for private subnet to communicate the internet for any updates...
+              Security group / NSG ---> inboud rules to allow traffic -- all traffic no ,  http , https, ssh for particular port numbers.
+
+VNET / VPC
+Subnets
+Internet Gataway
+NIC and NAT 
+rouble tables 
+security groups and NSG
+Fire walls --ports enabled--- for specific ports for secure connection http https sh
+
+=====================================================================================================================================================
+
+VMSS - Virtual machine scale set is  Microsoft Azure compute service that lets you 
+deploy, manage, and automatically scale a group of load-balanced virtual machines (VMs). 
+Instead of manually creating and configuring VMs one by one, you manage them as a group based on traffic demand or a set schedule.
+
+Autoscaling: Automatically adds (scales out) or removes (scales in) VM instances based on metrics like CPU usage or on a defined schedule.
+Load Balancing: Integrates with Azure Load Balancer and Azure Application Gateway to distribute traffic across healthy instances
+High Availability: Spreads instances across availability zones and fault domains to keep apps running if a component fails.
+
+same Auto scaling groups in AWS
+
+How does it work?
+For example, suppose we have an application running on virtual machines.
+Initially, we have 2 VMs.
+During normal traffic, 2 VMs are sufficient.
+During peak traffic, CPU utilization increases.
+VMSS automatically scales out and creates additional VMs.
+When traffic decreases, it scales in and removes unnecessary VMs.
+
+What do we manage?
+Operating system
+VM configuration
+Software installation
+Runtime and application deployment
+Patching and updates
+Networking and security
+Scaling configuration
+Real-time example: An e-commerce application running on multiple VMs. During a festival sale, traffic increases, so VMSS automatically increases the VM count to handle additional requests.
+
+-=======================================================================================================
+
+
+Onpremsis ---> manage everything 
+Ias ---> here networking,servers,storage they manage and we can manage applications, runtime and os 
+Platform as Service --> they manage netwoking, servers, storage, os, runtime --- we need to take of application and deploy
+Saas --> Eveything they we taken care you can use it like mail and outlook teams.
+
+PAAS --> app services---> used to deploy the web applications. so dev can focus more on code development part--- servers and data and everything like update and patches can taken care by cloud team
+
+App service --> App Service: Azure manages the infrastructure, and we focus on deploying and running web applications.
+we need RG --> subscription --> region
+     ----> app serice plan ---> name ---> os --> runtime stack --> tier -- create 
+
+
+How does it work?
+For example, suppose we want to host a Node.js application.
+Create an App Service Plan.
+Create a Web App.
+Select the Node.js runtime.
+Configure environment variables.
+Connect GitHub or Azure DevOps.
+Deploy the application.
+Configure scaling and monitoring.
+Azure takes care of the underlying infrastructure.
+
+What do we manage?
+Application code
+Runtime configuration
+Application settings
+Deployment pipeline
+Custom domains and SSL
+Scaling settings
+Monitoring
+Real-time example: Suppose we have an employee management portal developed using .NET. We deploy it to Azure App Service without managing the underlying VMs.
+
+
+=============================================================================================================================
+
+Funtion app service --> We run small pieces of code that execute when triggered by an event, HTTP request, timer, or message.
+Azure Function App is a serverless compute service used to execute small pieces of code based on specific events or triggers
+We don't need to maintain servers or continuously run an application.
+
+
+How does it work?
+For example, suppose we want to send an email whenever a new customer registers.
+A customer registers.
+An event or message is generated.
+Azure Function gets triggered.
+Function executes the code.
+An email is sent to the customer.
+Function execution completes.
+
+Common triggers
+HTTP Trigger – Executes when an HTTP request is received.
+Timer Trigger – Executes at a scheduled time.
+Queue Trigger – Executes when a message arrives in a queue.
+Blob Trigger – Executes when a blob is created or updated.
+Event Hub Trigger – Executes when events arrive in Event Hubs.
+Real-time example: Suppose an application uploads invoices to Azure Blob Storage. Whenever a new invoice is uploaded, an Azure Function automatically triggers, processes the invoice, and stores the result in a database.
+
+
+============================================================================================================================================
+
+Azure Devops ---> is a microsoft service that helps the development and devops team to plan, develop , build, test and deploy and monitor the applications
+
+here we have 5 main components to achive this sdlc process 
+Azure boards ---> to plan and track 
+azure repos ---> to maintain source code 
+azure pipeline--> to build, test and deploy by CICD
+azure testplans --> test cases 
+azure artifcats ---> Stores and shares packages and dependencies.
+
+================================================================================================================================
+Containerization and Kubernetes-based application deployment
+Containers ----> ACR azure container Registry-- to store docker images private and securely on cloud 
+
+      AKS --- > is a managed Kubernetes service provided by Microsoft Azure.
+                It is used to deploy, manage, and scale containerized applications.
+
+
+
+How you created ACR and how do you secure it ?
+
+How do you create AKS and how image is pulling and how you deploying safely .?
+
+
+===============================================================================================================================
+Key-vault ---> Azure Key Vault is a cloud service provided by Microsoft Azure that securely stores and manages sensitive information
+such as passwords, API keys, database connection strings, encryption keys, and SSL certificates.
+
+SPN -- Service Prinicpal name .... A Service Principal is an identity created in Microsoft Entra ID (formerly Azure Active Directory) that allows 
+an application, script, or CI/CD pipeline to authenticate to Azure resources without using a personal username and password.
+
+it will connect azure CICD pipeline securely to Azure 
+
+service connections --- secret value expires in 30 days we need to update it 
+===============================================================================================================================
+Storage Accounts ---> 
+
+================================================================================================================================
+
+Load Balancer (LB) ---> 
+
+DR ---> failover and failback --- servers changing the region for high availability.
+
+
+
+===============================================================================================================================
+Azure DNS --->
+Azure monitor --->
+
+
+
+
+
+
+===============================================================================================================================
+
+ADF - Azure Data Factory ---
+Azure Data Factory is a cloud-based data integration service provided by Microsoft Azure.
+
+We use it to collect data from different sources, transform the data, and load it into destinations.
+
+It supports ETL and ELT workflows and helps automate data movement and orchestration.
+
+For example, in an e-commerce project, customer information might be stored in SQL Server, order information in Azure SQL Database, and product information in CSV files.
+
+We can use Azure Data Factory to connect to these sources, extract the data, perform transformations, and load it into Azure Data Lake or a data warehouse.
+
+We create pipelines using activities such as Copy Data, Lookup, and Stored Procedure.
+
+We configure linked services to connect to data sources, datasets to identify the data, and triggers to schedule pipeline execution.
+
+From a DevOps perspective, we can use Azure DevOps and Terraform to manage and deploy Data Factory resources across Development, QA, and Production environments.
+
+
+
+========================================================================================================================================
+
+
+
+
+
+
+Hi Mahi introduction ?
+
+what are the services that you worked on azure cloud ?
+
+how you do troubleshoot AKS deployment pipeline in production environment ?
+
+what are the commands that you work with K8s while you troubleshooting oor debugging ??
+
+If the pipeline is failing due to authentication what you will do ? shell scripting for authentication ?
+
+
+if aks helm deployment is failed how do you troubleshoot it ??
+
+For Data engineer project how do you build CICD pipeline ??
+
+How do you reduce cost ? and how you manage all cost optimization in cloud ??
+
+
+if pods are unable to pull the image from acr how do you troubleshoot it ?
+
+How do you secure CICD pipelines in azure devops ??
+
+how do you manage 20+ applicaitions on microservices ??
+
+
+
+
+write the shell scripting for deploying aks ? and troubleshoot ??
+
+
+For critical application how do you implement blue green deployment ?? and explain others too ???
+
+
+A database password is stored in azure keyvault how can you confirm it without checking it manually ??
+
+
+
+
+
+
+=========================================================================================================
+
+Azure                                  AWS
+Azure entra ID                    IAM
+RBAC                              same 
+subsctriptions                    AWS account
+Resource Group                   Tags
+VM                               EC2
+Vnet - subnets, nsg,asg           VPC subnets, routetables, security groups --- nic, nat, internet gatway
+VMSS                             Autoscaling
+availability set, zone, LRS,
+Grs, GZRS                        Az Regions
+
+storage account 
+blob, files,queue,table          s3, elastic bean ,
+
+app service                       Elastic Beanstalk
+Funtion app                        Lamda
+
+ACR                                 ECR
+AKS                                 EKS
+ARM template                        Cloud Formation
+Azure DNS                            route 53
+azure monitor                        cloudwatch
+
+Key-vault                          Secret manager
+
+===========================================================================================================================================
