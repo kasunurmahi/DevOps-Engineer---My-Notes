@@ -1,1 +1,116 @@
-KUBERNETES
+Kubernetes
+==================================
+
+Docker swarm -- will run the containers -- no autoscaling and lb 
+and cant place the containers in desired workernodes 
+
+
+Kuberneted-- K8s --- Orchestration tool --- arranging containers in organized way
+---> Managing the container lifecycle and deploying large-scale applications
+
+---> k8s used for containerized applications-- autoscaling, selfhealing, LB, Secure, RBAC- Roles, Rolling back 
+
+
+K8s Architecture
+-----------------
+
+---> Cluster ---> Nodes ---> Pods ---> Containers ----> Application
+
+Cluster --- MasterNode --- Worker nodes
+
+MasterNode--->  API Server --- Heart of communication
+                ETCD -- stores the data
+                Scheduler -- it will check and decides which workernode
+                Controller-Manager ---it will manage all 
+
+WorkerNode----> Kubelet
+                Kube-Proxy
+                Container Runtime
+                Pod
+
+I will explain it in real time example 
+---> if airplan want to land in the airport ---> pilot send request for landing 
+By atc -- he will recives -- controller manager will check and ask to scheduler to check empty runway ---> ok -- schedule -- manager-- api --pilot
+this all info -- store in ETCD
+
+pilot is responsible for landing and takeoff -- kubelet 
+internal communication -- kubeproxy 
+pods are all passengers sitting in the plane 
+
+same like ---> 
+we have manifest files --- by kubectl ---> will the desired request by API -- then it will check with controller manager --- and check with scheduler ---decides the worker node
+
+                                          send the info from scheduler -- Controller manager-- API --- all information will store in ETCD 
+ API -- send the request to kubelet to create the pod -- and kubeproxy will take care of communication and inside POD container will run 
+==========================================================================================================================================================
+
+
+K8s -- For working with K8s we have 
+  Imperative ---> we need to learn commands  -- kubectl run pod1 --image ubuntu
+  Declarative ---> we have YAML files   ---> apiversion,kind,metadata,spec
+
+Objects 
+Pod ---> is the smallest unit which contains 1 or more containers
+Namespace --- > for isolation like dev, qa, stg, prod
+ReplicaSet ---> self healing concept --- if pod delete --- replicas of creating pod is for high avaibility ---but we cant rol back and update the deployment
+
+            1 pod delete --- replicas = 3 pods how ?? -->
+--
+                  Label-- it will label 3 pods  -- as 1 group 
+                  selectors -- it will select the group -- then 3 pods 
+                  template -- by using same pod 1 -- configurations we can create 3 pods with same configuration
+
+
+Deployement --- RS we can --self healing -- but cant rol back and update the deployment-- so deployment 
+              same as RS -- kind deployment --we can edit the image --update the image 
+        rolling update --- ??--- zero time downtime -- one by one pod will delete and again starts
+
+
+Service -- for internal and external communication btw pods to expose outside
+
+            1. clusterIp --> Within the cluster --mostly used for database 
+            2. NodePort ---> for exposing the application to outside -- range of 3000 to 32767 ( for small application )
+            3. LB load balancer -- traffic will distrubute HTTP
+            4. Ingress ---> Secure service to expose the application outside internet --> HTTPS-- based on path and host routing will happens -- with the help of ingress-controller
+
+Hortizontal scaling--HPA ---> here the servers will increase ---> pods   
+Vertical Scalling -- VPA---> here 1 server will increase size 
+Kubectl get po --watch
+
+
+ConfigMap --->
+Secrets
+
+
+K8s Volumes
+--- used to store the data. 
+
+1. Empty dir Vol --> while creating pod-- vol will create-- if pod delete -- vol will del 
+2. Hostpath ---> date is in hostpath -- attach t pod but cant attach to other volume only single node
+
+3. Persistance volume ---> it will store permanently 
+            even though nodes and pods are delete -- data remains constant in EBS -- we can use anytime and attach to any nodes
+1. create EBS 
+2. PV
+3. PVC 
+4. Pod
+how to connect PV to pod --by persistance volume claim 
+
+volume mount -- pv creates --> by mount path -- pod creates 
+volumes ---> go to pv -- pvc -- EBS -- stores ebs fails -- we can take snapshot 
+
+================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
