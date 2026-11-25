@@ -1,0 +1,174 @@
+=====================================================================================================
+Introduction.........? 
+---------------------------------------------------------
+
+
+Thank you for giving me this opportunity to introduce myself.
+My name is Kasunur Mahidhar. I have around 4 years of experience as a Devops engineer 
+3 years in azure 1 year in AWS but my primary skill is azure and azure devops.
+
+In Azure, I have worked with services like governence, compute, networking, azure devops, containers, security ,app services , infrastructure automation, monitoring, storage.
+
+In the DevOps area, I have hands-on experience with git, branching strategies, pr polices to secure source code.
+
+In Azure DevOps, 
+I implementing end to end CI/CD pipelines which consist build, testing and deploying by testing in dev, qa,uat, stg and production environments. 
+And also I worked on converting classic pipelines into YAML-based pipelines to improve deployment speed.
+And I worked for containerization applications where migrated from app services to container deployments 
+We use docker for image building and pushing to acr and scanned by trivy and aqua to find image scanning security and deploy these images to aks and supported for production deployments 
+
+Coming to the DevSecOps side, I have worked with SonarQube for static code analysis and Aqua and Trivy for container security scanning. I have also worked with monitoring tools 
+Azure Monitor to monitor application health and troubleshoot production issues.
+I also have experience with Infrastructure as Code using Terraform and configuration management using Ansible
+Apart from development and automation activities, I have experience handling production deployments, incident management, troubleshooting, and supporting applications while meeting SLA requirements.
+Followed agile and scrum methodology 
+I have also completed certifications like Azure Fundamentals AZ-900, Azure Administrator AZ-104, Azure DevOps Engineer Expert AZ-400, and AWS Certified DevOps Professional.
+My strengths are problem-solving, quick learning, teamwork, and a strong interest in learning new technologies.
+
+That's a brief introduction about myself. Thank you."
+
+
+=================================================================================================================================
+How do you secure cicd pipeline in azure devops ?
+-------------------------------------------------------------------
+
+For securing cicd pipeline in azure devops we should follow multiple ways 
+1. For securing source code we need to use branching strategies and branch policies and pull request policies to avoid merging the code to main branch 
+Branch locking and pr approvals 
+2. In the ci level we should integrate sonar scan and for docker images we need to scan by trivy, aqua 
+3. Using least privilege access for spn to restrict and Microsoft recommendations that spn secrets should update each 30 days and secret and certificates should keep in azure keyvaluts instead of hardcoding 
+4. For aks deployments need to use trust images with proper versions instead of latest 
+5. Enabling manual approvals for production environment for lower we can deploy automatically by pipelines ....
+6. Overall with least privilege, secret storing, code review , scanning images, controlled approvals for prod environment.
+
+===================================================================================================================================
+How will you design CICD workflow from scratch for large enterprise application ????
+============================================================================================================================
+
+If I need to design CICD workflow from scratch for large enterprise application
+
+i will follow some steps 
+
+1. I will gather the information and understand the architecture ---- is it monolithic, 2 or 3 tier, microservices, 
+      ---- which cloud platform ? , tech stack ?, deployment environments, security requirments, deployment target ??
+
+2. building the infrasturcture  --- services like IAAS, PAAS-- VNET-- isolated network and 
+                                                                     self hosted agent for running the pipelines--- bcz --- one time depencency installation,
+                                                                     fast builds, security , cost optimization 
+                                                            microsoft agents also best in security --patching will taken by them 
+                                                            -- always new assign agent again fresh runs , new installation, and cant access to end points, no backps.
+                         
+3. for source management --- azure repos
+4.CICD pipeline creation
+5.secret management -- keyvaults--- secrets and certifications
+6.goverance -- giving less privilleges to user by rbac custom roles and SPN to connect Azure resources
+7.deployment stratgies --- based on applications
+8.monitoring
+9. roll backs if any failures
+
+I will recommened to  use Azure-Devops bcz all services are intergrated 
+this is the approach i will follow if i want to create cicd from  scratch 
+
+============================================================================================================================================
+How do you trouble shoot if aks deployment failed in production environment ? And how you handle this ? 
+---------------------------------------------------------------------------------------------------------------
+
+Coming to aks deployments 
+If pipeline failed in production environment 
+Instead of rerun the pipeline i would check the pipeline status 
+Here in pipeline logs i identify in which stage the pipeline is failing whether it is failing in build or docker image creation or pushing to acr or scanning the image or aks deployment 
+If this is not is issue I will check the image is pushed to acr and check the image name and tag 
+Or I will check the authentication used by the pipeline whether spn secret is expired or not 
+If deployment failing I will connect to the cluster and with the help of kubectl commands I will find the logs and describe to check tha errors ...
+Image pull back off - unable to pull image from acr by image name or tag or acr authentication 
+Crashloopbackoff - due to database connection or missing env variable or resource limit 
+If it is deployed but application is not accessible then we need to check service and ingress, lb and endpoints 
+If it is causing more time to debugging then instead of delay we can rollback to previous successful version 
+After understanding the root cause need to documention to avoid in further 
+This is the approach I follow when aks deployments failure in production environment.
+
+=======================================================================================================================
+If aks helm deployment fails ?? 
+-------------------------------------------------------------
+Helm is a package manager for k8s 
+Helps to deploy and manage k8s applications using reusable charts instead of applying individual yml files 
+
+Helm reads the charts and configuration values
+Values .yml 
+Chart.yml 
+Templates 
+Deployment.yml 
+Service l.yml
+Ingress.yml
+
+To k8s  manifest files 
+Helm install or upgrade the application as per our desired inputs 
+
+I check the failure whether helm task or deployment stage then I will check helm commands release namespace, chart version , values file ..
+Helm status and helm list and history to understand that Installation or upgrade failed .
+
+After that kubectl commands 
+Rbac permissions I will check
+Roll back to previous successful version 
+
+Root cause find out and documentation to avoid in further
+
+============================================================================================================================================
+How do you manage 30 applications on microservices??
+-----------------------------------------------------------------
+For 30 applications i would follow cicd automation and used containerization and deploy to k8s 
+
+Maintain seperate repository for each application and created cicd pipelines by yml to perform 
+Build , unit testing, docker image creation , scan and pushing to acr and deploy to aks by helm charts 
+For each environments dev,qa,uat,stg, production instead of multiple k8s manfiest yml files 
+
+Security ascpets -- secrets stored in azure keyvaluts 
+
+Latest image tag is not encourage we need to use specific tag to avoid failure and easy to roll back 
+
+For prod deployments instead of auto approvals going with manual to avoid issues.
+
+=================================================================================================================================================
+what are the deployment strategies that you are using in your pipelines ??
+===========================================================================
+
+coming to deployment strategies for critical applications we used blue green deployment where we can create 2 same environments with same configuration
+
+blue and green 
+in blue the current production application is avaliable 
+in green environment the new version once after testing we will shift the traffic from blue env to green env by load balancer ---  cost is high
+
+and for microservices deployments 
+we used rolling update--- pods will gradually deployed when old pods are terminated one by one  --- zero downtime ---- 
+
+canary deployment ---- used for eecommere application -- the new version will be tested within the few user if it good then we can increase the user percentage and use it.
+
+
+================================================================================================================================================
+
+what are the major critical issues that you resolved in pipeline deployments ????
+==================================================================================
+
+issues-- 
+Git branching Pr locking
+nuget package version errors, 
+sonar scan failing, -- service connection  
+spn secret expires, 
+ADF linked services, 
+varaibles group miss matching ,
+
+secret expired on prod day -- sonar token -- 
+app service failure-- access issue 
+
+target server sql is faling due to offline again bring up online then deployed 
+
+docker -- acr image pulling image failure
+k8s -- imagepullback, imagecrashlop, pods creating , deployment pause , applciation is responding ,
+
+
+============================================================================================================================================================
+
+
+
+Jenkins ---- Groovy Lang --- 
+
