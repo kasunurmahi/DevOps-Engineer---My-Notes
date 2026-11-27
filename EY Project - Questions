@@ -126,7 +126,7 @@ How do you secure cicd pipeline in azure devops ? and how you enable security pa
 --------------------------------------------------
 
 
-How will you design CICD workflow from scratch for large enterprise application ???? JAVA / Dotnet / Python applications
+How will you design CICD workflow from scratch for large enterprise application ???? ( JAVA / Dotnet / Python applications )
 --------------------------------------------------------------------------------------------------------------------------
 
 
@@ -141,13 +141,83 @@ what are the major critical issues that you resolved in CICD pipeline deployment
 --------------------------------------------------------------------------------------
 
 
-which Deployemnt strategies you will use for critical application ? 
+what are the deployment strategies that you are using in your critical applications ?
 
 ======================================================================================================================================================
-what are the deployment strategies that you are using in your pipelines ??
+
+Docker 
+---------
+What is Docker ? and expain docker architecture ?
+
+how do you optimize docker image size ?
+
+
+Write and Dockerfile for python application ??
+difference btw entrypoint and cmd ?
+can you write the docker file for applications ?
+
+
+
+Kubernetes
+--------------
+What is k8s ? and expain k8s architecture ?
+
+write the deployment file ?
+helm manifest files ?
+
+critical issues in k8s
+
+have you worked with readness and probes ?
+ how you do check the pod logs and how you increase the size ?
+
+if application is not up and how do you check ?
+
 =========================================================================================================================================================
 
 
+Terraform 
+------------
+
+You mentioned terraform, what excatly you worked on terraform ???
+-----------------------------------------------------------------------
+
+what is the workflow of terraform and How its works ??
+---------------------------------------------------------
+
+
+SomeOne is trying to create a resource in azure but already it present what error you will get ??
+
+what is terraform statefile ?? and how you securely store in remote backend ??
+can you explian the modules and how you used them ??
+
+
+Can you write the code for RG/ VM / VNET and subnets / ACR / AKS / Storage account....
+
+
+
+
+==========================================================================================================================================================
+
+Ansible
+---------
+
+
+
+===========================================================================================================================================================
+
+Monitoring Tools
+------------------
+
+===========================================================================================================================================================
+Application --- DNS and LB to understand, Ports, https, and API request
+=============================================================================================================================================================
+
+AI - ChatGpt / Github-copilot / 
+
+For building Terraform automation/ CICD agents builds to run Pipelines
+
+
+=============================================================================================================================================================
 
 
 
