@@ -1,5 +1,6 @@
+========================================================================================================================
 Self Introduction
-========================
+========================================================================================================================
 
 Yeah, Thanks for the opportunity to introduce myself.
 My name is K.Mahidhar. I have 4 years of experience as a Devops engineer 
@@ -32,10 +33,119 @@ and also i supported for DR activity to perform failover and failback through pi
 yeah , that's what my professional introduction and the skills that i have possessed upto right now.
 now iam looking for a opportunity where i can enhance my skills and grow as a devops engineer
 
-
-
 ========================================================================================================================================
+what was your day to day activities and roles and responsibiltes in your project ???
+========================================================================================================================================
+Coming to my day to day activities 
 
+my day starts with a scrum call where we discuss road blocks,incidents,issues,jira stories, mails, tickets,to work on daily basis 
+
+Recently i worked for one of the critical applciation called QNXT 
+where users can login to check the insurance policy, claims , payments and other details 
+
+Once the developer is ready with code then push the code to repos to feature branch
+i have implemented end to end CICD pipeline creation by using azure pipelines
+
+For 2 tier application applications
+CI consists multiple stages like trigger,code checkout,build, unit-testing, building,integrating sonar and publishing the artifacts.
+CD- by taking the build artifacts and deploying in lower environments and production environments with secure Service connections
+
+For containerization applications
+CICD - consitst multistage pipeline where checkout,build the image and pushing to acr and scan by security tools and deployed to aks by different environments.
+
+For prod environments 
+raising the RFC/ ERFC -- to maintain ctask and with-in the change window it should deploy successfull. and post validations for the applications by monitoring 
+
+--------------------------------------------------
+Coming to Roles and Responsiblites
+--------------------------------------------------
+
+gathering the requirements 
+working with developers to manage repos, branching strategies , pr mereges
+creating IAAS and PAAS services on azure 
+
+Creating CICD pipelines
+integrating Sonarscan and aqua scan 
+Creating variable groups for different environment 
+creating Service connections
+managing secrets and certificates by azure keyvault and adding security for pipelines to avoid runs
+
+taking care of lower env deployements and prod deployments
+debugging the pipeline issues and prod deployment failures
+monitoring the application logs and metrics 
+tickets sloving and incidents , mails 
+Leading the scrum and standup calls, retospective calls
+updating all efforts in jira dashboards. 
+
+these are the day to day acitivties and roles and responsibilties
+=====================================================================================================================================================
+
+Git- Questions 
+----------------
+what branching stratagies that you used in your project ?? 
+--------------------------------------------------------------
+
+what branching policies you implemented in your project ?
+----------------------------------------------------------
+
+how do you secure the source code in repos ?
+----------------------------------------------
+
+How you do you merge the code which type of PR merge you used ?
+------------------------------------------------------------------
+
+when will you use cherry picking ?
+-------------------------------------
+
+
+
+what is git and explain git workflow ?
+------------------------------------------
+git is a Distributed version control where we tracks,modify,edit the code changes easily
+Git Flow --->working directory ---> staging area ----> local repository ---> Remote repository
+
+what is git pull ? merge, clone, push, commit ? differences
+-------------------------------------------------------------
+
+
+what is git merge, rebase, cherry-picking, squash, stash ?
+--------------------------------------------------------------
+
+
+
+
+========================================================================================================================================================
+CICD - Pipelines - Questions.
+-------------------------------------
+
+
+What pipelines you created in your project ??
+-----------------------------------------------
+
+How do you secure cicd pipeline in azure devops ? and how you enable security parameters ??
+--------------------------------------------------
+
+
+How will you design CICD workflow from scratch for large enterprise application ???? JAVA / Dotnet / Python applications
+--------------------------------------------------------------------------------------------------------------------------
+
+
+How do you manage 30 applications on microservices?? and how do you build CICD for microservices ??
+----------------------------------------------------------------------------------------------------
+
+How do you trouble shoot if aks deployment failed in production environment ? And how you handle this ? and commands
+-----------------------------------------------------------------------------------------------------------
+
+
+what are the major critical issues that you resolved in CICD pipeline deployments ????
+--------------------------------------------------------------------------------------
+
+
+which Deployemnt strategies you will use for critical application ? 
+
+======================================================================================================================================================
+what are the deployment strategies that you are using in your pipelines ??
+=========================================================================================================================================================
 
 
 
