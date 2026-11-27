@@ -1,0 +1,60 @@
+Self Introduction
+========================
+
+Yeah, Thanks for the opportunity to introduce myself.
+My name is K.Mahidhar. I have 4 years of experience as a Devops engineer 
+I started my carrer with infosys there i worked for several domains projects ( molina health care , truist, hcsc)
+
+i have hands on experience with azure cloud, azure devops, docker,kubernetes,terraform
+In Azure, I have worked with services like governence, compute, networking, azure devops, containers, security ,app services ,infrastructure automation, monitoring, storage.
+
+In the DevOps side, I have hands-on experience with git, branching strategies, pr polices to secure the source code.
+
+Coming to Azure DevOps, 
+I implementing end to end CI/CD pipelines for java, dotnet, python applications which consist build, testing and deploying in dev, qa,uat, stg and production environments.
+And also I worked on converting classic pipelines into YAML-based pipelines to improve deployment speed.
+And I worked for containerization applications where migrated from app services to container deployments 
+We use docker for image building and pushing to acr and scanned by trivy and aqua to find image scanning security and deploy these images to aks and supported for production deployments 
+
+Coming to the DevSecOps side, I have worked with SonarQube for static code analysis 
+For Docker Images we used Aqua and Trivy for image scanning. 
+
+I have also worked with terraform for provisioning infrastructure on cloud based on client requirements
+like vm,vnet,subnets, app servies, acr and aks,storage accounts.
+
+Apart from development and automation activities,
+I have experience handling production deployments failures, incidents, troubleshooting the CICD pipelines, 
+And we Followed agile and scrum methodology for supporting applications while meeting SLA requirements.
+
+For monitoring we used application insights and azure monitor 
+and also i supported for DR activity to perform failover and failback through pipeines to ensure high availability
+
+yeah , that's what my professional introduction and the skills that i have possessed upto right now.
+now iam looking for a opportunity where i can enhance my skills and grow as a devops engineer
+
+
+
+========================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
